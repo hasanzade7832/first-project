@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <Headers/>
+  <Showlist @toparent="getData"/>
+  
+    {{appName}}
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Headers from './components/Headers.vue';
+import Showlist from './components/Showlist.vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "app",
+  components:{
+    Headers,
+    Showlist
+  },
+  data() {
+    return {
+      appName: ''
+    }
+  },
+  methods: {
+    getData(name){
+      this.appName = name
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
